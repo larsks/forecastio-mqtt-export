@@ -5,7 +5,6 @@ import json
 import logging
 import os
 import requests
-import sys
 import time
 
 import paho.mqtt.client as mqtt
@@ -13,7 +12,10 @@ import paho.mqtt.client as mqtt
 LOG = logging.getLogger(__name__)
 
 current_weather_url = 'https://api.darksky.net/forecast/{api_key}/{location}'
-params = {'exclude': 'minutely,hourly,daily,flags'}
+params = {
+    'exclude': 'minutely,hourly,daily,flags',
+    'units': 'si',
+}
 
 
 def parse_args():
